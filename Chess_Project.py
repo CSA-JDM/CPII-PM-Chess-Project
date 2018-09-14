@@ -9,6 +9,7 @@ import tkinter as tk
 class App(tk.Frame):
     def __init__(self, master):
         # Main Frame Initialization
+        master.config(width=1280, height=720)
         super().__init__(master)
 
         # Item Dictionaries
@@ -17,10 +18,22 @@ class App(tk.Frame):
         self.labels = {}
         self.entries = {}
 
+        self.chess_board = ChessBoard(master)
+        for color in ["black", "white"]:
+            print(color)
+            pass  # Make the pieces needed for each team
 
-class ChessBoard:
-    def __init__(self):
-        pass
+
+class ChessBoard(tk.Frame):
+    def __init__(self, master):
+        super().__init__(master)
+        self.board_positions = dict()
+        for letter in ["A", "B", "C", "D", "E", "F", "G", "H"]:
+            for number in range(8):
+                if letter not in self.board_positions.keys():
+                    self.board_positions.update({letter: {number + 1: tk.Frame(self)}})
+                else:
+                    self.board_positions[letter].update({number + 1: tk.Frame(self)})
 
     def __str__(self):
         pass
