@@ -10,7 +10,8 @@ class App(tk.Frame):
     def __init__(self, master):
         # Main Frame Initialization
         master.config(width=1280, height=720)
-        super().__init__(master)
+        super().__init__(master, width=1280, height=720)
+        self.place(x=0, y=0)
 
         # Item Dictionaries
         self.frames = {}
@@ -22,6 +23,17 @@ class App(tk.Frame):
         for color in ["black", "white"]:
             print(color)
             pass  # Make the pieces needed for each team
+        self.main_menu()
+
+    def main_menu(self):
+        self.frames["menu_frame"] = tk.Frame(self, width=1280, height=720)
+        self.frames["menu_frame"].place(x=0, y=0)
+        self.labels["title_label"] = tk.Label(self.frames["menu_frame"], text="Chess Game",
+                                              font=("Comic Sans MS", 12, "bold"))
+        self.labels["title_label"].place(x=5, y=5)
+        self.labels["version_label"] = tk.Label(self.frames["menu_frame"], text="Version 0.01",
+                                                font=("Comic Sans MS", 12))
+        self.labels["version_label"].place(x=5, y=690)
 
 
 class ChessBoard(tk.Frame):
