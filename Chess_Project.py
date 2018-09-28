@@ -34,18 +34,28 @@ class ChessBoard(tk.Frame):
                     self.board_positions.update({letter: {number + 1: tk.Frame(self)}})
                 else:
                     self.board_positions[letter].update({number + 1: tk.Frame(self)})
+        print(self.board_positions)
 
     def __str__(self):
         pass
 
 
-class ChessPiece:
-    def __init__(self, pos, color):
+class ChessPiece(tk.Button):
+    def __init__(self, master, pos, color):
+        super().__init__(master)
         self.pos = pos
         self.color = color
+        self.movement_type = ["", []]
 
     def __str__(self):
         pass
+
+    def movement(self, x, y, g_input):
+
+        if self.movement_type = "king":
+            if
+
+
 
 
 class King(ChessPiece):
@@ -92,8 +102,9 @@ class Pawn(ChessPiece):
     def __init__(self, pos, color):
         super().__init__(pos, color)
 
+
     def __str__(self):
-        pass
+        return "Pawn"
 
 
 if __name__ == "__main__":
